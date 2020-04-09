@@ -15,9 +15,9 @@ let client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-//app.get("/", (req, res) => {
-// res.send("Welcome to Red Onion Backend Server");
-//});
+app.get("/", (req, res) => {
+  res.send("Welcome to Red Onion Backend Server");
+});
 
 app.get("/foods", (req, res) => {
   client = new MongoClient(uri, {
@@ -120,7 +120,7 @@ app.post("/submitOrder", (req, res) => {
       if (err) {
         res.status(500).send({ message: err });
       } else {
-        res.send(result.ops[0]);
+        res.send(result.ops);
       }
     });
   });
